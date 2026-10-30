@@ -1,29 +1,35 @@
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import { site } from "@/lib/site";
 import { ChannelIcons } from "./icons";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  // Art direction: landscape crop on desktop, portrait crop on mobile
+  const common = {
+    alt: `${site.name} singing on stage`,
+    fill: true,
+    priority: true,
+    sizes: "100vw",
+  };
+  const {
+    props: { srcSet: desktop },
+  } = getImageProps({ ...common, src: site.heroImage.desktop });
+  const {
+    props: { srcSet: mobile, ...rest },
+  } = getImageProps({ ...common, src: site.heroImage.mobile });
+
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.media}>
-        <Image
-          src={site.heroImage}
-          alt={`${site.name} with his acoustic guitar on a rooftop`}
-          fill
-          priority
-          sizes="100vw"
-          className={styles.image}
-        />
+        <picture>
+          <source media="(min-width: 901px)" srcSet={desktop} />
+          <source media="(max-width: 900px)" srcSet={mobile} />
+          <img {...rest} alt={common.alt} className={styles.image} />
+        </picture>
       </div>
       <div className={styles.shade} aria-hidden />
 
       <div className={styles.content}>
-        <p className={styles.eyebrow}>
-          <span className={styles.dot} aria-hidden />
-          Independent Artist · {site.location}
-        </p>
-
         <h1 className={styles.name}>{site.name}</h1>
 
         <ul className={styles.roles}>

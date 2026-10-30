@@ -20,7 +20,7 @@
 
 .image {
   object-fit: cover;
-  object-position: 58% 35%;
+  object-position: 50% 30%;
 }
 
 /* Cinematic fade: dark top for the nav, left side for the title, bottom into the page */
@@ -45,26 +45,8 @@
   animation: rise 1.2s 0.3s var(--ease) both;
 }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(198, 227, 107, 0.2);
-}
-
 .name {
-  margin: 14px 0 18px;
+  margin: 0 0 18px;
   font-size: clamp(56px, 8.4vw, 150px);
   font-weight: 800;
   line-height: 0.9;
@@ -165,7 +147,7 @@
   }
 
   .image {
-    object-position: 60% center;
+    object-position: 45% center;
   }
 
   .shade {

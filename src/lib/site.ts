@@ -29,13 +29,16 @@ export const site = {
   ],
   location: "Thrissur, Kerala",
 
-  heroImage: "/images/IMG_2800.JPG",
+  heroImage: {
+    desktop: "/images/banner-bg-desk.png",
+    mobile: "/images/banner-bg-mobile.jpg",
+  },
   aboutImage: "/images/banner.jpg",
 
   phone: {
-    display: "+91 94972 53237",
-    tel: "tel:+919497253237",
-    whatsapp: "https://wa.me/919497253237",
+    display: "+91 90483 45861",
+    tel: "tel:+919048345861",
+    whatsapp: "https://wa.me/919048345861",
   },
 
   streaming: [
