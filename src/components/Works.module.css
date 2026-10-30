@@ -1,0 +1,123 @@
+/* Latest release — album-header style card tinted from the cover */
+.featured {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(20px, 3vw, 40px);
+  margin-bottom: clamp(48px, 6vw, 72px);
+  padding: clamp(20px, 3vw, 36px);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 0% 0%, hsl(var(--hue) 45% 30% / 0.9), transparent 70%),
+    linear-gradient(to bottom, hsl(var(--hue) 25% 16%), var(--surface));
+}
+
+.featuredCover {
+  flex: 0 0 clamp(160px, 20vw, 280px);
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.featuredTitle {
+  margin: 8px 0 14px;
+  font-size: clamp(40px, 6.4vw, 96px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.featuredMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(242, 239, 232, 0.8);
+}
+
+.featuredBody .featuredCta {
+  margin-top: 24px;
+}
+
+/* Shelf cards */
+.card {
+  display: block;
+  height: 100%;
+  padding: 12px 12px 18px;
+  border-radius: var(--radius);
+  transition: background-color 0.25s;
+}
+
+.card:hover,
+.card:focus-visible {
+  background: var(--surface-hover);
+}
+
+.cardCover {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.play {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.card:hover .play,
+.card:focus-visible .play {
+  opacity: 1;
+  transform: none;
+}
+
+.play:hover {
+  scale: 1.06;
+}
+
+.title {
+  overflow: hidden;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.category {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (hover: none) {
+  .play {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .featured {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .featuredCover {
+    flex-basis: auto;
+    width: min(60vw, 240px);
+  }
+}
